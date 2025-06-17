@@ -11,23 +11,24 @@ class Book {
     required this.imageUrl,
   });
 
-  // Método auxiliar para criar um Book a partir de um JSON (útil para APIs)
   factory Book.fromJson(Map<String, dynamic> json) {
+    final volumeInfo = json['volumeInfo'] ?? {};
+
     return Book(
-      title: json['title'] ?? 'Sem título',
-      author: json['author'] ?? 'Desconhecido',
-      description: json['description'] ?? 'Sem descrição',
-      imageUrl: json['coverUrl'] ?? 'https://via.placeholder.com/150',
+      title: volumeInfo['title'] ?? 'Sem título',
+      author: (volumeInfo['authors'] as List?)?.join(', ') ?? 'Autor desconhecido',
+      description: volumeInfo['description'] ?? 'Sem descrição',
+      imageUrl: volumeInfo['imageLinks']?['thumbnail'] ??
+          'https://via.placeholder.com/150',
     );
   }
 
-  // Método para converter um Book em JSON (se quiser salvar localmente ou enviar para API)
   Map<String, dynamic> toJson() {
     return {
       'title': title,
       'author': author,
       'description': description,
-      'coverUrl': imageUrl,
+      'imageUrl': imageUrl,
     };
   }
 }

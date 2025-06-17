@@ -1,17 +1,20 @@
-name: book_finder_app
-description: A Flutter app for searching and saving books using Google Books API.
+name: read_radar
+description: Um app de leitura para explorar livros.
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.8.0 <4.0.0'
+  sdk: '>=2.19.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  provider: ^6.0.5
-  http: ^0.13.5
-  shared_preferences: ^2.2.0
-  flutter_dotenv: ^5.0.2
+  shared_preferences: ^2.2.2
+  http: ^0.13.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true

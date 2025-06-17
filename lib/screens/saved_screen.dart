@@ -1,3 +1,43 @@
+//import 'package:flutter/material.dart';
+// import '../models/book.dart';
+// import '../widgets/book_card.dart';
+//
+// class SavedScreen extends StatelessWidget {
+//   final List<Book> savedBooks;
+//   final void Function(Book) onToggleFavorite;
+//   final void Function(Book) onBookTap;
+//
+//   const SavedScreen({
+//     Key? key,
+//     required this.savedBooks,
+//     required this.onToggleFavorite,
+//     required this.onBookTap,
+//   }) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text('Ler Depois'),
+//         backgroundColor: Colors.blue,
+//       ),
+//       body: savedBooks.isEmpty
+//           ? const Center(child: Text('Nenhum livro salvo.'))
+//           : ListView.builder(
+//         itemCount: savedBooks.length,
+//         itemBuilder: (context, index) {
+//           final book = savedBooks[index];
+//           return BookCard(
+//             book: book,
+//             onTap: () => onBookTap(book),
+//             isFavorite: false, // ou lógica para saber se está favoritado
+//             onFavoriteToggle: () => onToggleFavorite(book),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
 import 'package:flutter/material.dart';
 import '../models/book.dart';
 import '../widgets/book_card.dart';
@@ -6,12 +46,14 @@ class SavedScreen extends StatelessWidget {
   final List<Book> savedBooks;
   final void Function(Book) onToggleFavorite;
   final void Function(Book) onBookTap;
+  final VoidCallback onClearSaved;
 
   const SavedScreen({
     Key? key,
     required this.savedBooks,
     required this.onToggleFavorite,
     required this.onBookTap,
+    required this.onClearSaved,
   }) : super(key: key);
 
   @override
@@ -20,6 +62,13 @@ class SavedScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Ler Depois'),
         backgroundColor: Colors.blue,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: onClearSaved,
+            tooltip: 'Excluir todos',
+          ),
+        ],
       ),
       body: savedBooks.isEmpty
           ? const Center(child: Text('Nenhum livro salvo.'))
@@ -30,7 +79,7 @@ class SavedScreen extends StatelessWidget {
           return BookCard(
             book: book,
             onTap: () => onBookTap(book),
-            isFavorite: false, // ou lógica para saber se está favoritado
+            isFavorite: false,
             onFavoriteToggle: () => onToggleFavorite(book),
           );
         },

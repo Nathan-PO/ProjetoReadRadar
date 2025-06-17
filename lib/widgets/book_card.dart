@@ -26,15 +26,25 @@ class BookCard extends StatelessWidget {
           fit: BoxFit.cover,
           errorBuilder: (context, error, stackTrace) => const Icon(Icons.book),
         ),
-        title: Text(book.title),
-        subtitle: Text(book.author),
-        trailing: IconButton(
+        title: Text(
+          book.title,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Text(
+          book.author,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        trailing: onFavoriteToggle != null
+            ? IconButton(
           icon: Icon(
             isFavorite ? Icons.favorite : Icons.favorite_border,
             color: isFavorite ? Colors.red : null,
           ),
           onPressed: onFavoriteToggle,
-        ),
+        )
+            : null,
         onTap: onTap,
       ),
     );

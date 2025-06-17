@@ -13,15 +13,7 @@ class BookApiService {
 
       if (items == null) return [];
 
-      return items.map((item) {
-        final volumeInfo = item['volumeInfo'];
-        return Book(
-          title: volumeInfo['title'] ?? 'Sem título',
-          author: (volumeInfo['authors'] as List?)?.join(', ') ?? 'Autor desconhecido',
-          description: volumeInfo['description'] ?? 'Sem descrição',
-          imageUrl: volumeInfo['imageLinks']?['thumbnail'] ?? 'https://via.placeholder.com/150',
-        );
-      }).toList();
+      return items.map((item) => Book.fromJson(item)).toList();
     } else {
       throw Exception('Erro ao buscar livros');
     }
