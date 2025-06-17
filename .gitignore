@@ -1,0 +1,47 @@
+# Flutter/Dart
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+build/
+.idea/
+.vscode/
+*.iml
+
+# Gerado automaticamente
+generated_plugin_registrant.dart
+
+# Arquivos temporários de sistema
+*.lock
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
+# Android
+android/
+
+# iOS
+ios/
+
+# Web
+web/
+
+# Linux
+linux/
+
+# Windows
+windows/
+
+# MacOS
+macos/
+
+# Outros IDEs
+*.ipr
+*.iws
+*.bak
+
+# Firebase (se usar mais tarde)
+firebase-debug.log
