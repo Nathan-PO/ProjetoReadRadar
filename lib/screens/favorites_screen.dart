@@ -24,7 +24,7 @@ class FavoritesScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () {
-              // lógica para excluir todos os favoritos pode ser tratada fora
+              // lógica para excluir
             },
           ),
         ],

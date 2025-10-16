@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../design_system/button/button.dart';
 
 class SettingsScreen extends StatefulWidget {
   final VoidCallback onToggleTheme;
@@ -61,7 +62,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               ),
             ),
             const SizedBox(height: 10),
-            ElevatedButton(
+            ElevatedButton (
               onPressed: _saveName,
               child: const Text('Salvar'),
             ),

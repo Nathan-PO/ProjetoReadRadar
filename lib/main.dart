@@ -1,11 +1,20 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; ///Android
+
+///
 import 'models/book.dart';
+
+///Telas
 import 'screens/home_screen.dart';
 import 'screens/favorites_screen.dart';
 import 'screens/saved_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/book_details_screen.dart';
+import 'screens/design_system_screen.dart';
+
+///Dados
 import 'data/books_data.dart';
+
+///Serviços
 import 'services/book_api_service.dart';
 import 'services/favorite_service.dart';
 import 'services/saved_service.dart';
@@ -130,6 +139,9 @@ class _ReadRadarAppState extends State<ReadRadarApp> {
   @override
   Widget build(BuildContext context) {
     final screens = [
+      DesignSystemScreen(
+
+      ),
       HomeScreen(
         books: _books,
         favoriteBooks: _favoriteBooks,
@@ -168,7 +180,7 @@ class _ReadRadarAppState extends State<ReadRadarApp> {
     return MaterialApp(
       title: 'ReadRadar',
       debugShowCheckedModeBanner: false,
-      navigatorKey: navigatorKey, // ADICIONADO AQUI
+      navigatorKey: navigatorKey,
       themeMode: _themeMode,
       theme: ThemeData.light(),
       darkTheme: ThemeData.dark(),
@@ -180,6 +192,11 @@ class _ReadRadarAppState extends State<ReadRadarApp> {
             setState(() => _selectedIndex = index);
           },
           items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.edit),
+              label: 'Modelo',
+              backgroundColor: Colors.blue,
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Início',
