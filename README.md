@@ -1,130 +1,109 @@
-🎨 Design System — ReadRadar
+📚 ReadRadar - O Teu Radar Literário
 
-O Design System do ReadRadar foi desenvolvido para garantir consistência visual, facilidade de manutenção e reutilização de componentes em todo o aplicativo.
-Ele centraliza todas as definições de estilo — cores, tipografia, ícones e componentes — em um único lugar, permitindo que o app mantenha uma identidade visual coesa e moderna.
+Aplicação Flutter para descoberta e gestão de livros, desenvolvida com foco em Arquitetura Limpa e Design System.
 
-🧩 Estrutura de Arquivos
+📱 Sobre o Projeto
 
-O design system é dividido em módulos independentes localizados na pasta:
+O ReadRadar é uma aplicação móvel que permite aos utilizadores pesquisar livros, visualizar detalhes, explorar categorias e gerir uma lista de favoritos. O projeto foi desenvolvido como um trabalho académico para demonstrar competências avançadas em engenharia de software móvel, incluindo a implementação de um Design System completo e o padrão arquitetural MVVM-C (Model-View-ViewModel-Coordinator).
 
-lib/design_system/
+✨ Funcionalidades Principais
 
+🔍 Busca em Tempo Real: Integração com a Google Books API para pesquisar milhares de títulos.
 
-Cada arquivo possui uma função específica:
+❤️ Gestão de Favoritos: Persistência de dados local (Shared Preferences) para guardar livros favoritos offline.
 
-Arquivo	Função
-colors.dart	Define a paleta principal do aplicativo, com cores de fundo, texto, destaque e feedback (erro, sucesso, etc).
-typography.dart	Define os estilos tipográficos usados em títulos, subtítulos e textos de corpo, baseados na fonte "Family".
-icons.dart	Centraliza todos os ícones utilizados no app, facilitando sua substituição e manutenção.
-button.dart	Contém o componente base de botões do ReadRadar, aplicando o tema, cores e tipografia padrão.
-card_movie.dart	Define o estilo visual dos cards de livros exibidos nas listas e telas principais do app.
-theme.dart	Reúne cores, tipografia e estilos de componentes para compor o tema global (claro e escuro) do aplicativo.
-✏️ Tipografia
+🎨 Design System Completo: Componentes reutilizáveis, tipografia centralizada e paleta de cores semântica.
 
-O ReadRadar utiliza a fonte "Family", mantendo uma hierarquia clara entre os textos:
+🌙 Tema Claro e Escuro: Suporte total a Dark Mode, adaptando todos os componentes automaticamente.
 
-Estilo	Tamanho	Peso	Uso
-Título	14	SemiBold (w600)	Títulos de seções e componentes
-Subtítulo	12	Regular (w400)	Textos secundários e descrições
-BodyText	10	Regular (w400)	Conteúdo e textos auxiliares
-🌈 Cores
+🚀 Navegação Fluida: Uso de animações Hero para transições suaves entre lista e detalhes.
 
-A paleta de cores é composta por tons suaves e contrastes equilibrados, visando uma leitura confortável e moderna.
-O sistema também é preparado para alternar entre modo claro e escuro, mantendo legibilidade e estética em ambos os temas.
+🗂️ Categorias: Filtros rápidos por género (Tecnologia, Ficção, Romance, etc.).
 
-⚙️ Benefícios
+🔐 Autenticação: Fluxo de Login, Registo e Recuperação de Senha (Simulado).
 
-🔁 Reutilização de componentes — garante consistência entre as telas
+🛠️ Arquitetura e Tecnologias
 
-🎯 Padronização visual — mantém a identidade do ReadRadar
+O projeto segue rigorosamente o padrão MVVM-C para garantir a separação de responsabilidades e testabilidade.
 
-🧱 Escalabilidade — fácil de adicionar novos estilos e componentes
+Tecnologias
 
-⚡ Produtividade — reduz retrabalho e acelera o desenvolvimento de novas features
+Linguagem: Dart
 
-----------------------------------------------------------------------------------------------------------------------------------------
+Framework: Flutter (3.x)
 
-# 📚 ReadRadar
+Gerenciamento de Estado: ChangeNotifier / AnimatedBuilder (Nativo)
 
-ReadRadar é um aplicativo Flutter para explorar, favoritar e salvar livros para leitura posterior. Desenvolvido como parte de um projeto acadêmico, o app simula um radar literário, permitindo ao usuário buscar livros, marcar como favoritos e organizar leituras.
+Persistência: shared_preferences
 
-## 🚀 Funcionalidades
+Requisições HTTP: http
 
-- 🔍 **Busca de Livros** — Permite pesquisar livros pelo nome.
-- ❤️ **Favoritar Livros** — Salve seus livros favoritos com um toque.
-- 📌 **Ler Depois** — Marque livros para ler depois, com sistema independente dos favoritos.
-- 📖 **Detalhes do Livro** — Veja informações completas sobre o livro selecionado.
-- ⚙️ **Configurações** — Altere o tema (claro/escuro) e personalize o nome de usuário.
-- 💾 **Persistência Local** — Os dados de favoritos e "ler depois" são salvos localmente com `shared_preferences`.
+Estrutura MVVM-C
 
+Model: Definição dos dados (Book) e lógica de parsing JSON.
 
-## 🛠️ Tecnologias
+View: Camada de UI passiva (Screens), responsável apenas por desenhar o estado.
 
-- **Flutter**
-- **Dart**
-- `shared_preferences` para armazenamento local
-- Organização modular por:
-  - `/models`
-  - `/screens`
-  - `/widgets`
-  - `/data`
-  - `/services`
+ViewModel: Gerencia a lógica de negócios e o estado da tela (HomeViewModel, FavoritesViewModel).
 
-## 🗂️ Estrutura de Pastas
+Coordinator: Gerencia a navegação e o fluxo entre telas, centralizado no main.dart.
 
-```
+Factory: Padrão de criação para injetar dependências nas Views (DashboardFactory).
+
+🎨 Design System
+
+O projeto implementa um Design System customizado baseado em Atomic Design, localizado na pasta lib/Design_system.
+
+Estrutura
+
+Tokens (Shared):
+
+colors.dart: Paleta de cores semântica (AppColors.primary, AppColors.surface(isDark)).
+
+styles.dart: Tipografia e espaçamentos padronizados (AppTypography.h1, AppSpacings.m).
+
+Componentes:
+
+PrimaryButton: Botões com suporte a loading e outline.
+
+CustomInput: Campos de texto adaptáveis ao tema.
+
+BookCard: Cartão de exibição de livro com sombra e animação Hero.
+
+Nota: A aplicação inclui uma tela dedicada ("UI Kit") para visualizar e documentar todos os componentes do Design System.
+
+📂 Estrutura de Pastas
 
 lib/
-├── data/
-│   └── books\_data.dart
-├── models/
-│   └── book.dart
-├── screens/
-│   ├── book\_details\_screen.dart
-│   ├── favorites\_screen.dart
-│   ├── home\_screen.dart
-│   ├── saved\_screen.dart
-│   ├── settings\_screen.dart
-├── services/
-│   └── book\_api\_service.dart
-├── widgets/
-│   └── book\_card.dart
-├── main.dart
+├── Application/
+│   ├── Factories/      # Criação de telas e injeção de dependências
+│   ├── Models/         # Modelos de dados (Book)
+│   ├── Screens/        # Telas (UI)
+│   ├── Services/       # API e Persistência Local
+│   └── ViewModels/     # Lógica de Estado (ChangeNotifier)
+├── Design_system/
+│   ├── Components/     # Widgets Reutilizáveis (Botões, Inputs, Cards)
+│   └── Shared/         # Tokens de Estilo (Cores, Tipografia)
+└── main.dart           # Ponto de Entrada e Coordinator
 
-````
 
-## 📦 Instalação
+🚀 Como Executar
 
-1. **Clone o repositório:**
+Clone o repositório:
 
-```bash
-git clone https://github.com/seu-usuario/readradar.git
-cd readradar
-````
+git clone [https://github.com/Nathan-PO/ProjetoReadRadar.git](https://github.com/Nathan-PO/ProjetoReadRadar.git)
 
-2. **Instale as dependências:**
 
-```bash
+Instale as dependências:
+
 flutter pub get
-```
 
-3. **Execute o app:**
 
-```bash
+Execute o projeto:
+
 flutter run
-```
 
-> Certifique-se de ter o Flutter instalado e configurado corretamente.
-> Caso ainda não tenha, consulte: [flutter.dev/docs/get-started/install](https://flutter.dev/docs/get-started/install)
 
-## 🙋‍♂️ Autor
+👨‍💻 Autor
 
-Desenvolvido por **Nathan Lacerda** como projeto acadêmico.
-Sinta-se livre para contribuir, testar ou deixar sugestões!
-
----
-
-## 📝 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
-
+Desenvolvido por Nathan Lacerda como parte de um projeto universitário de Desenvolvimento Mobile.
