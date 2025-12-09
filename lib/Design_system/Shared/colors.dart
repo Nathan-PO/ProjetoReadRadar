@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  // --- Paleta Base (Ninguém usa isso direto na tela) ---
+  //Paleta Base
   static const Color _brandPrimary = Color(0xFF6C63FF);
   static const Color _brandSecondary = Color(0xFF2196F3);
 
@@ -20,25 +20,19 @@ class AppColors {
   static const Color _error = Color(0xFFFF6B6B);
   static const Color _success = Color(0xFF4ECC5C);
 
-  // --- Cores Semânticas (USE ESTAS NA TELA) ---
+  //Cores Semânticas
 
-  // Cor principal da marca
   static Color get primary => _brandPrimary;
   static Color get error => _error;
   static Color get success => _success;
 
-  // Retorna a cor de fundo correta baseada no tema
   static Color background(bool isDark) => isDark ? _darkBackground : _lightBackground;
 
-  // Retorna a cor de superfície (cards, appbar) correta
   static Color surface(bool isDark) => isDark ? _darkSurface : _lightSurface;
 
-  // Retorna a cor de texto principal correta
   static Color textPrimary(bool isDark) => isDark ? _textDarkMain : _textLightMain;
 
-  // Retorna a cor de texto secundário correta
   static Color textSecondary(bool isDark) => isDark ? _textDarkSec : _textLightSec;
 
-  // Retorna cor para ícones
   static Color icon(bool isDark) => isDark ? _textDarkMain : _textLightMain;
 }

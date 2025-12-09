@@ -10,11 +10,9 @@ class BookDetailsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //Detecta o tema para passar para os métodos do DS
     final isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      //Fundo controlado pelo DS
       backgroundColor: AppColors.background(isDark),
       appBar: AppBar(
         title: Text('Detalhes', style: AppTypography.h2(isDark)),
@@ -23,7 +21,7 @@ class BookDetailsView extends StatelessWidget {
         iconTheme: IconThemeData(color: AppColors.icon(isDark)),
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppSpacings.l), //Espaçamento DS
+        padding: const EdgeInsets.all(AppSpacings.l),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -36,7 +34,7 @@ class BookDetailsView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(16),
                     boxShadow: [
                       BoxShadow(
-                          color: Colors.black.withOpacity(0.3),
+                          color: Colors.black.withValues(alpha: 0.3),
                           blurRadius: 20,
                           offset: const Offset(0, 10)
                       )
@@ -66,7 +64,6 @@ class BookDetailsView extends StatelessWidget {
                 Expanded(
                   child: Text(
                       book.author,
-                      // Pequena variação de tamanho permitida, mas baseada no DS
                       style: AppTypography.caption(isDark).copyWith(fontSize: 18)
                   ),
                 ),

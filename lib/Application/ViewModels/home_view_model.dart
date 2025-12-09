@@ -11,7 +11,6 @@ class HomeViewModel extends ChangeNotifier {
   bool get isLoading => _isLoading;
   String get errorMessage => _errorMessage;
 
-  final BookApiService _apiService = BookApiService();
 
   // Método para buscar livros
   Future<void> fetchBooks(String query) async {
